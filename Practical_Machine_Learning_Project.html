@@ -157,7 +157,7 @@ predictRP &lt;- predict(modrp, test, type=&quot;class&quot;)</code></pre>
 <p>Random Forest</p>
 <pre class="r"><code>modrf &lt;- randomForest(classe~., data=training)
 predictRF &lt;- predict(modrf, test)</code></pre>
-<p>Test to see which predictive model is most accurate.</p>
+<p>This step uses the confusionMatrix function for cross validation and to calculate the out of sample error for each of the three prediction models.</p>
 <pre class="r"><code>confusionMatrix(predictLDA, test$classe)</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
@@ -254,7 +254,7 @@ predictRF &lt;- predict(modrf, test)</code></pre>
 ## Detection Rate         0.2845   0.1935   0.1743   0.1639   0.1837
 ## Detection Prevalence   0.2845   0.1935   0.1743   0.1639   0.1837
 ## Balanced Accuracy      1.0000   1.0000   1.0000   1.0000   1.0000</code></pre>
-<p>Since the Random Forest model has the highest accuracy, we’ll us it to predict the classes for the initial 20 test cases.</p>
+<p>Since the Random Forest model has the highest accuracy of 1, we’ll use it to predict the classes for the initial 20 test cases.</p>
 <pre class="r"><code>predict(modrf, test_20)</code></pre>
 <pre><code>##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
 ##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
