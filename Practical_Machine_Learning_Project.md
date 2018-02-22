@@ -57,7 +57,7 @@ modrf <- randomForest(classe~., data=training)
 predictRF <- predict(modrf, test)
 ```
 
-Test to see which predictive model is most accurate.
+This step uses the confusionMatrix function for cross validation and to calculate the out of sample error for each of the three prediction models.
 
 ``` r
 confusionMatrix(predictLDA, test$classe)
@@ -167,7 +167,7 @@ confusionMatrix(predictRF, test$classe)
     ## Detection Prevalence   0.2845   0.1935   0.1743   0.1639   0.1837
     ## Balanced Accuracy      1.0000   1.0000   1.0000   1.0000   1.0000
 
-Since the Random Forest model has the highest accuracy, we'll us it to predict the classes for the initial 20 test cases.
+Since the Random Forest model has the highest accuracy of 1, we'll use it to predict the classes for the initial 20 test cases.
 
 ``` r
 predict(modrf, test_20)
